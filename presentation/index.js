@@ -3,6 +3,7 @@ import React from "react";
 
 // Import Spectacle Core tags
 import {
+  Spectacle,
   BlockQuote,
   Cite,
   Deck,
@@ -13,6 +14,8 @@ import {
   Slide,
   Text
 } from "spectacle";
+
+import CodeSlide from 'spectacle-code-slide';
 
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
@@ -38,7 +41,8 @@ const theme = createTheme({
   primary: "white",
   secondary: "#1F2022",
   tertiary: "#03A9FC",
-  quartenary: "#CECECE"
+  quartenary: "#CECECE",
+  codeBg: "#122b45",
 }, {
   primary: "Montserrat",
   secondary: "Helvetica"
@@ -65,6 +69,22 @@ export default class Presentation extends React.Component {
           <Heading size={5} textColor="secondary">Heading 5</Heading>
           <Text size={6} textColor="secondary">Standard text</Text>
         </Slide>
+         <CodeSlide
+            transition={["f"]}
+            lang="js"
+            bgColor="codeBg"
+            code={require("raw-loader!../assets/code.example")}
+            ranges={[
+              { loc: [0, 0], title: "Walking through some code" },
+              { loc: [0, 1], title: "The Beginning" },
+              { loc: [1, 2] },
+              { loc: [1, 2], note: "Heres a note!" },
+              { loc: [2, 3] },
+              { loc: [4, 7] },
+              { loc: [8, 10] }
+              // ...
+            ]}/>
+
         <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
           <Heading size={6} textColor="secondary" caps>Standard List</Heading>
           <List>
