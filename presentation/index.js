@@ -45,7 +45,10 @@ const images = {
   mainbg: require("../assets/main_bg.jpg"),
   slide2: require("../assets/slide_2.jpg"),
   then_vs_now : require("../assets/then_vs_now.jpg"),
-  slide3: require("../assets/slide_3.jpg")
+  slide3: require("../assets/slide_3.jpg"),
+  slide4: require("../assets/slide_4.jpg"),
+  mindblown: require("../assets/mindblown.gif"),
+  slide5: require("../assets/slide_5.jpg")
 };
 
 preloader(images);
@@ -115,19 +118,35 @@ export default class Presentation extends React.Component {
               { loc: [10, 21], note: "We wrap our heads around modules" },
               { loc: [24, 31], note: "We get busy with Components" },
               { loc: [33, 48], note: "And we play with Routes" },
-              { loc: [59, 64], title: "Step 2: Angular CLI", note: "We use commands to get stuff done" }
+              { loc: [57, 66], title: "Step 2: Angular CLI", note: "We use commands to get stuff done" }
               // ...
             ]}/>
 
-        <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>Standard List</Heading>
-          <List>
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
+        <Slide transition={["fade"]} align="top" bgImage={[images.mainbg]}>
+          <Heading size={3} margin="60px 0 0 0"fit caps textColor="primary">
+            Feel like a hero yet?
+          </Heading>
+
+          <List textColor="dark" margin="60px 0 0 0">
+            <Appear><ListItem margin="20px 0 0 0">We run ng build and it's in MB's</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">We run --prod and it's in KB's</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">We run --aot , something happens</ListItem></Appear>
           </List>
+
+          <Appear>
+            <Heading size={3} margin="60px 0 0 0"fit caps textColor="primary">
+              How does it all work?
+            </Heading>
+          </Appear>
         </Slide>
+
+        <Slide transition={["fade"]} align="center center" bgImage={[images.slide4]}>
+          <Appear><Image src={[images.mindblown]} width="450px"></Image></Appear>
+        </Slide>
+
+        <Slide transition={["fade"]} bgImage={[images.mainbg]}>
+        </Slide>
+
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <BlockQuote>
             <Quote>Thank You!</Quote>

@@ -56,8 +56,8 @@ export const routedComponents = [AppComponent];
 
 
 
-
+npm install -g @angular/cli
+ng new myApp
 ng serve
 ng build
-ng build --prod
-ng build --prod --aot
+
