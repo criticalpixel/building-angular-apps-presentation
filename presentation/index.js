@@ -55,7 +55,8 @@ const images = {
   build2: require("../assets/build_2.png"),
   build3: require("../assets/build_3.png"),
   build4: require("../assets/build_4.png"),
-  build5: require("../assets/build_5.png")
+  build5: require("../assets/build_5.png"),
+  webpack_angular: require("../assets/webpack_angular.png"),
 
 };
 
@@ -68,6 +69,7 @@ const theme = createTheme({
   quartenary: "#CECECE",
   dark: "#202020",
   codeBg: "#122b45",
+  seed: "#252525",
   green: '#0f9d58',
   blue: '#0277bd',
   red: '#db4437',
@@ -89,7 +91,7 @@ export default class Presentation extends React.Component {
             Building Angular Apps
           </Heading>
           <Text margin="10px 0 0" textColor="dark" textSize={34} bold>
-            Understanding the build process using Webpack
+            Going beyond Angular CLI with Webpack
           </Text>
         </Slide>
         <Slide transition={["f"]} bgImage={[images.slide2]}>
@@ -102,8 +104,8 @@ export default class Presentation extends React.Component {
           <List textColor="dark" margin="60px 0 0 0">
             <Appear><ListItem margin="20px 0 0 0">Angular workflow</ListItem></Appear>
             <Appear><ListItem margin="20px 0 0 0">Breakdown of the build process</ListItem></Appear>
-            <Appear><ListItem margin="20px 0 0 0">Using Webpack save our lives</ListItem></Appear>
-            <Appear><ListItem margin="20px 0 0 0">Demo :)</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">Using Webpack ftw!</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">Setup angular aot with webpack :)</ListItem></Appear>
           </List>
         </Slide>
 
@@ -137,30 +139,30 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]}  bgImage={[images.mainbg]}>
           <Heading size={3} margin="60px 0 0 0"fit caps textColor="primary">
-            Feel like a hero yet?
+            Why use anything else?
           </Heading>
           
 
           <List textColor="dark" margin="60px 0 0 0">
-            <Appear><ListItem margin="20px 0 0 0">We run ng build and it's in MB's</ListItem></Appear>
-            <Appear><ListItem margin="20px 0 0 0">We run --prod and it's in KB's</ListItem></Appear>
-            <Appear><ListItem margin="20px 0 0 0">We run --aot , something happens</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">Have more control</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">Use of extra features</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">Understand Angular better</ListItem></Appear>
           </List>
 
           <Appear>
-            <Heading size={3} margin="60px 0 0 0"fit caps textColor="primary">
-              How does it all work?
+            <Heading size={3} margin="60px 0 0 0" fit caps textColor="primary">
+              CURIOSITY
             </Heading>
           </Appear>
         </Slide>
 
           <Slide transition={["fade"]} bgImage={[images.mainbg]}>
-          <Heading size={5}  caps textColor="primary">
+          <Heading size={5} caps textColor="primary">
             We clone an angular seed from github
           </Heading>
           </Slide>
 
-        <Slide transition={["fade"]} align="center center" bgColor="darkslide">
+        <Slide transition={["fade"]} align="center center" bgColor="seed">
            <Image src={[images.slide4]} width="100%"></Image>
           <Appear><Image src={[images.mindblown]} margin="-100% 0 0 0" width="450px"></Image></Appear>
         </Slide>
@@ -223,13 +225,6 @@ export default class Presentation extends React.Component {
             </Layout>
         </Slide>
 
-        <Slide transition={["fade"]} bgImage={[images.mainbg]} textColor="primary">
-          <Image src={[images.webpack]} width="400px"></Image>
-         <Heading size={4} caps fit textColor="primary">
-                  Webpack to the rescue
-            </Heading>
-        </Slide>
-
         <Slide transition={["fade"]}  bgImage={[images.mainbg]}>
            {/*<Heading size={4} textAlign="left" textColor="primary">
                   Building with Webpack
@@ -241,7 +236,7 @@ export default class Presentation extends React.Component {
               <Fill>
                 <Appear>
                   <Text textSize={24} margin="20px 0 0 40px" textAlign="left"  textColor="primary">
-                   Create a package.json file, npm install all dependencies & code app in Typescript
+                   Create a package.json file, yarn install all dependencies & code app in Typescript
                   </Text>
                 </Appear>
               </Fill>
@@ -281,7 +276,7 @@ export default class Presentation extends React.Component {
               <Fill>
                 <Appear>
                   <Text textSize={24} margin="20px 0 0 40px" textAlign="left"  textColor="primary">
-                  We can use a Webpack plugin to Uglify and Tree Shake our code.
+                  We can use a Webpack plugin to Uglify and Tree-Shake* our code.
                   </Text>
                 </Appear>
               </Fill>
@@ -300,12 +295,132 @@ export default class Presentation extends React.Component {
               </Fill>
             </Layout>
         </Slide>
+
+        <Slide transition={["fade"]} bgImage={[images.mainbg]} textColor="primary">
+          <Image src={[images.webpack]} width="400px"></Image>
+         <Heading size={4} caps fit textColor="primary">
+                  Webpack to the rescue
+            </Heading>
+        </Slide>
+
+
+         <CodeSlide
+            transition={["f"]}
+            lang="typescript"
+            bgColor="codeBg"
+            code={require("raw-loader!../assets/code/webpack.ts")}
+            ranges={[
+              { loc: [0, 0], title: "Webpack 101" },
+              { loc: [0, 3], note: "Define any plugins we need" },
+              { loc: [4, 5], note: "Configuration goes into module.exports object" },
+              { loc: [5, 6], note: "Step 1. Define entry point" },
+              { loc: [6, 10], note: "Step 2. Define output" },
+              { loc: [10, 18], note: "Step 3. Tell webpack what to do." },
+              { loc: [18, 25], note: "Step 4. Configure any plugins we plan to use." }
+              // ...
+            ]}/>
+          
+        <Slide transition={["fade"]} bgImage={[images.mainbg]} textColor="primary">
+          <Image src={[images.webpack_angular]} width="400px"></Image>
+         <Heading size={4} caps fit textColor="primary">
+                  Angular AOT with Webpack 
+            </Heading>
+        </Slide>
+
+        <Slide transition={["fade"]}  bgImage={[images.mainbg]}>
+          <Heading size={3} margin="60px 0 0 0"fit caps textColor="primary">
+            The important bits
+          </Heading>
+          
+
+          <List textColor="dark" margin="60px 0 0 0">
+            <Appear><ListItem margin="20px 0 0 0">AOT tsconfig.josn</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">AOT bootstrap</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">Webpack plugins & loaders</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">AOT webpack config</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">npm commands</ListItem></Appear>
+          </List>
+        </Slide>
+
         
+         <CodeSlide
+            transition={["f"]}
+            lang="typescript"
+            bgColor="codeBg"
+            code={require("raw-loader!../assets/code/tsconfig.ts")}
+            ranges={[
+              { loc: [0, 0], title: "AOT tsconfig" },
+              { loc: [18, 23], note : "exclude bootstap file"},
+              { loc: [23, 26], note : "location for aot generated files" }
+              // ...
+            ]}/>
+
+            
+         <CodeSlide
+            transition={["f"]}
+            lang="typescript"
+            bgColor="codeBg"
+            code={require("raw-loader!../assets/code/main.aot.ts")}
+            ranges={[
+              { loc: [0, 0], title: "AOT Bootstrap" },
+              { loc: [0, 1], note: "aot uses platformBrowser instead of platformBrowserDynamic" },
+              { loc: [1, 2], note: "generated via webpack" },
+              { loc: [10, 11], note: "bootstrap our app"}
+              // ...
+            ]}/>
+
+            <CodeSlide
+            transition={["f"]}
+            lang="typescript"
+            bgColor="codeBg"
+            code={require("raw-loader!../assets/code/webpack.aot.ts")}
+            ranges={[
+              { loc: [0, 0], title: "AOT Webpack" },
+              { loc: [3, 4], note: "We use @ngtools/webpack plugin for AOT" },
+              { loc: [10, 14] },
+              { loc: [14, 19] },
+              { loc: [25, 30] , note: "We use @ngtools/webpack to transpile"},
+              { loc: [55, 59] , note: "@ngtools/webpack AotPlugin : define our tsconfig path & our entry module"}
+              // ...
+            ]}/>
+
+          <Slide transition={["fade"]}  bgImage={[images.mainbg]}>
+          <Heading size={3} margin="60px 0 0 0"fit caps textColor="primary">
+            Let's see it in Action
+          </Heading>
+        </Slide>
+          
+        <Slide transition={["fade"]}  bgImage={[images.mainbg]}>
+          <Heading size={3} margin="60px 0 0 0" textColor="primary">
+            Links
+          </Heading>
+            <List>
+            <ListItem>
+              <Link  textColor="primary" href="https://github.com/criticalpixel/angular-webpack2-barebone">Github : angular-webpack2-barebone</Link>
+            </ListItem>
+            <ListItem>
+              <Link  textColor="primary" href="https://angular.io/docs/ts/latest/cookbook/aot-compiler.html">AOT Cookbook</Link>
+            </ListItem>
+            <ListItem>
+              <Link  textColor="primary" href="https://angular.io/docs/ts/latest/guide/deployment.html">Angular Deployment Guide</Link>
+            </ListItem>
+            <ListItem>
+              <Link  textColor="primary" href="https://github.com/AngularClass/angular2-webpack-starter">Angular Class Webpack Starter</Link>
+            </ListItem>
+            <ListItem>
+              <Link  textColor="primary" href="https://medium.com/@Rich_Harris/tree-shaking-versus-dead-code-elimination-d3765df85c80#.15ih9cyvll">Treeshaking vs Deadcode elimination</Link>
+          </ListItem>
+          <ListItem>
+              <Link  textColor="primary" href="http://www.dzurico.com/angular-aot-webpack-lazy-loading/">Dzurico : AOT webpack lazyloading</Link>
+          </ListItem>
+          </List>
+        </Slide>
+
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <BlockQuote>
             <Quote>Thank You!</Quote>
-            <Cite textColor="dark">Thomas</Cite>
+            <Cite textColor="dark">@criticalpix</Cite>
           </BlockQuote>
         </Slide>
       </Deck>
