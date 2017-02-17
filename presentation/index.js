@@ -67,7 +67,7 @@ const theme = createTheme({
   secondary: "#42a5f7",
   tertiary: "#134ca7",
   quartenary: "#CECECE",
-  dark: "#202020",
+  dark: "#ccc",
   codeBg: "#122b45",
   seed: "#252525",
   green: '#0f9d58',
@@ -91,7 +91,7 @@ export default class Presentation extends React.Component {
             Building Angular Apps
           </Heading>
           <Text margin="10px 0 0" textColor="dark" textSize={34} bold>
-            Going beyond Angular CLI with Webpack
+            Understanding build process with Webpack
           </Text>
         </Slide>
         <Slide transition={["f"]} bgImage={[images.slide2]}>
@@ -113,7 +113,7 @@ export default class Presentation extends React.Component {
           <Heading size={5} margin="60px 0 0 0" fit caps textColor="primary">
             Our workflow has changed a bit.
           </Heading>
-          <Text size={3}>
+          <Text size={3} textColor="dark">
             We can no longer just stick a .min.js file from a CDN and start developing.
           </Text>
            <Appear><Image src={[images.then_vs_now]} width="60%"></Image></Appear>
@@ -139,21 +139,8 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]}  bgImage={[images.mainbg]}>
           <Heading size={3} margin="60px 0 0 0"fit caps textColor="primary">
-            Why use anything else?
+            So how does it all work?
           </Heading>
-          
-
-          <List textColor="dark" margin="60px 0 0 0">
-            <Appear><ListItem margin="20px 0 0 0">Have more control</ListItem></Appear>
-            <Appear><ListItem margin="20px 0 0 0">Use of extra features</ListItem></Appear>
-            <Appear><ListItem margin="20px 0 0 0">Understand Angular better</ListItem></Appear>
-          </List>
-
-          <Appear>
-            <Heading size={3} margin="60px 0 0 0" fit caps textColor="primary">
-              CURIOSITY
-            </Heading>
-          </Appear>
         </Slide>
 
           <Slide transition={["fade"]} bgImage={[images.mainbg]}>
@@ -334,7 +321,7 @@ export default class Presentation extends React.Component {
           
 
           <List textColor="dark" margin="60px 0 0 0">
-            <Appear><ListItem margin="20px 0 0 0">AOT tsconfig.josn</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">AOT tsconfig.json</ListItem></Appear>
             <Appear><ListItem margin="20px 0 0 0">AOT bootstrap</ListItem></Appear>
             <Appear><ListItem margin="20px 0 0 0">Webpack plugins & loaders</ListItem></Appear>
             <Appear><ListItem margin="20px 0 0 0">AOT webpack config</ListItem></Appear>
@@ -380,7 +367,7 @@ export default class Presentation extends React.Component {
               { loc: [10, 14] },
               { loc: [14, 19] },
               { loc: [25, 30] , note: "We use @ngtools/webpack to transpile"},
-              { loc: [55, 59] , note: "@ngtools/webpack AotPlugin : define our tsconfig path & our entry module"}
+              { loc: [54, 58] , note: "@ngtools/webpack AotPlugin : define our tsconfig path & our entry module"}
               // ...
             ]}/>
 
@@ -388,6 +375,20 @@ export default class Presentation extends React.Component {
           <Heading size={3} margin="60px 0 0 0"fit caps textColor="primary">
             Let's see it in Action
           </Heading>
+        </Slide>
+
+        <Slide transition={["fade"]}  bgImage={[images.mainbg]}>
+          <Heading size={3} margin="60px 0 0 0"fit caps textColor="primary">
+            In conclusion
+          </Heading>
+          
+
+          <List textColor="dark" margin="60px 0 0 0">
+            <Appear><ListItem margin="20px 0 0 0">It's good to know how things work</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">Webpack is awesome</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">AOT is a real</ListItem></Appear>
+            <Appear><ListItem margin="20px 0 0 0">Life is good</ListItem></Appear>
+          </List>
         </Slide>
           
         <Slide transition={["fade"]}  bgImage={[images.mainbg]}>
